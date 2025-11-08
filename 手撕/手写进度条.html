@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .outer {
+    width: 300px;
+    height: 20px;
+    background-color: #eee;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 5px;
+  }
+
+  .inner {
+    height: 100%;
+    width: 0;
+    background-color: #4caf50;
+    transition: width 0.3s ease;
+  }
+
+  p {
+    font-size: 14px;
+    margin: 2px;
+  }
+</style>
+<body>
+  <p class="progress-text">0%</p>
+  <div class="outer">
+    <div class="inner"></div>
+  </div>
+
+  <script>
+    const inner = document.querySelector('.inner')
+    const text = document.querySelector('p')
+    let progress = 0
+
+    const updateProgress = (value) => {
+      progress = value
+      inner.style.width = value + '%'
+      text.textContent = value + '%'
+    }
+
+    // 模拟进度
+    const interval = setInterval(() => {
+      if(progress >= 100) clearInterval(interval)
+      else updateProgress(progress + 5)
+    }, 200)
+  </script>
+</body>
+</html>
