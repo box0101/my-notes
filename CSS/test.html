@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>负 margin 可视化测试</title>
+<style>
+  .container {
+    background-color: #eee;
+    padding: 20px;
+    width: 400px;
+    margin-bottom: 50px;
+  }
+
+  .box {
+    width: 150px;
+    height: 80px;
+    background-color: #f00;
+    color: white;
+    line-height: 80px;
+    text-align: center;
+    font-weight: bold;
+    display: inline-block;
+    margin-right: 0; /* 默认 0 */
+    margin-bottom: 0;
+  }
+
+  .box.green {
+    background-color: #0f0;
+    color: black;
+  }
+
+  /* 明显的负 margin 测试 */
+  .neg-right {
+    margin-right: -50px;
+  }
+
+  .neg-left {
+    margin-left: -50px;
+  }
+
+  .neg-bottom {
+    display: block;
+    margin-bottom: -40px;
+  }
+
+  .neg-top {
+    display: block;
+    margin-top: -40px;
+  }
+
+  .neg-block {
+    display: block;
+  }
+</style>
+</head>
+<body>
+
+<h2>水平负 margin</h2>
+<div class="container">
+  <div class="box neg-right">红色</div>
+  <div class="box green">绿色</div>
+</div>
+
+<h2>垂直负 margin</h2>
+<div class="container">
+  <div class="box neg-block neg-bottom">红色</div>
+  <div class="box neg-block green">绿色</div>
+</div>
+
+</body>
+</html>
